@@ -1,6 +1,7 @@
 import {reactive, ref, watch} from "vue";
 import Swal from "sweetalert2";
 import axiosSetting from "../settings/axiosSetting";
+import { Modal } from 'flowbite';
 
 export default function crud() {
 
@@ -17,6 +18,7 @@ export default function crud() {
         pagePaginate.value = page;
         loading.value = true;
         modalShow.value = 0;
+        dataAllCheck.value = [];
 
         let params: Record<string, any> = {
             _page: page,
@@ -62,18 +64,27 @@ export default function crud() {
     let modalShow = ref<number>(0);
     const type = ref<string>('');
 
+    const openModal = () => {
+        const modalEl = document.getElementById('crud-modal');
+        if (modalEl) {
+            const modal = new Modal(modalEl);
+            modal.show();
+        }
+    };
+
     let showModelEdit = (row: any) => {
         dataRow.value = row;
         type.value = 'edit';
         modalShow.value += 1;
+        openModal();
     }
     let showModelCreate = () => {
         dataRow.value = null;
         type.value = 'create';
         modalShow.value += 1;
+        openModal();
     }
     let dblclickRow = (item: any) => {
-        document.getElementById('add-new')?.click();
         showModelEdit(item);
     };
     // end show model

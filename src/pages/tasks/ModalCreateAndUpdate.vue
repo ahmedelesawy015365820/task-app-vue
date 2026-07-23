@@ -12,8 +12,7 @@
           <button
               type="button"
               class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-              data-modal-toggle="crud-modal"
-              @click.prevent="defaultData"
+              @click.prevent="closeAndReset"
           >
             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
@@ -106,9 +105,8 @@
               </button>
             </template>
             <button
-                data-modal-hide="crud-modal"
                 type="button"
-                @click.prevent="defaultData"
+                @click.prevent="closeAndReset"
                 class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
             >
               Cancel
@@ -131,11 +129,10 @@
 <script setup lang="ts">
 import {computed, nextTick, reactive, ref, watch} from "vue";
 import useVuelidate from "@vuelidate/core";
-import {maxLength, minLength, required} from "@vuelidate/validators";
+import {maxLength, minLength, required, requiredIf, maxValue, helpers} from "@vuelidate/validators";
 import axiosSetting from "../../settings/axiosSetting";
 import Swal from 'sweetalert2';
-
-defineOptions({ name: 'tasks'});
+import { Modal } from 'flowbite';
 
 const emit = defineEmits(['created']);
 
@@ -158,6 +155,17 @@ function defaultData(){
   is_disabled.value = false;
   loading.value = false;
   nextTick(() => { v$.value.$reset() });
+}
+function closeModal() {
+  const modalEl = document.getElementById('crud-modal');
+  if (modalEl) {
+    const modal = new Modal(modalEl);
+    modal.hide();
+  }
+}
+function closeAndReset() {
+  closeModal();
+  defaultData();
 }
 function resetModal() {
   defaultData();
@@ -200,13 +208,35 @@ let submitData =  reactive({
     dueDate: '',
   }
 });
-
+const today = new Date().toISOString().split("T")[0];
 const rules = computed(() => {
   return {
     title: { required, maxLength:maxLength(150) },
     description: { required, maxLength:maxLength(300) },
     status: { required },
-    dueDate: { required },
+    dueDate: {
+      required,
+      validDate: helpers.withMessage(
+          "Invalid due date",
+          (value: string) => {
+            if (!value) return false;
+
+            if (props.type === "create") {
+              // اليوم أو المستقبل
+              return value >= today;
+            }
+
+            if (props.type === "edit") {
+              const oldDate = props.dataRow.dueDate.split("T")[0]; // لو راجع من API بصيغة ISO
+
+              // التاريخ القديم أو اليوم أو المستقبل
+              return value === oldDate || value >= today;
+            }
+
+            return true;
+          }
+      ),
+    },
   }
 });
 
@@ -242,6 +272,7 @@ const AddSubmit = () =>  {
               showConfirmButton: false,
               timer: 1500
             });
+            closeAndReset();
           }
           emit("created");
         })

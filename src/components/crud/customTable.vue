@@ -60,7 +60,7 @@
       <tr
           v-for="(item,index) in data"
           :key="item.id"
-          @click.capture="$emit('addCheckTableAll',item.id)"
+          @click="$emit('addCheckTableAll',item.id)"
           @dblclick.prevent="$emit('dblclickRow',item)"
           @contextmenu.prevent="openContextMenu($event, item)"
           class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -89,7 +89,7 @@
                   <span
                       v-if="stu.value == item.status"
                       :class="[
-                        item.status === stu.value? `bg-${stu.color}-100 text-${stu.color}-800 dark:bg-${stu.color}-900 dark:text-${stu.color}-300`: '',
+                        item.status === stu.value ? getColorClass(stu.color) : '',
                         'text-xs font-medium px-2 py-0.5 rounded'
                     ]"
                   >
@@ -101,12 +101,12 @@
             {{ item[el.key] }}
           </td>
         </template>
-        <td class="px-4 py-3 flex items-center justify-end">
+        <td class="px-4 py-3 flex items-center justify-end" @click.stop>
           <div class="flex items-center space-x-4">
             <!-- زرار التعديل (Update) -->
             <button
                 class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                @click.capture="$emit('showModelEdit',item)" type="button" data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+                @click="$emit('showModelEdit',item)" type="button"
             >
               <svg class="w-4 h-4" aria-hidden="true" xmlns="http://w3.org" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.848 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.391a2.017 2.017 0 0 1 0 2.853l-6.832 6.832L9 15l.182-3.535 6.832-6.832a2.017 2.017 0 0 1 2.853 0Z"/>
@@ -161,6 +161,20 @@ import rightClickCustomMenu from './rightClickCustomMenu.vue'
 
   const closeContextMenu = () => {
     contextMenuVisible.value = false;
+  };
+
+  const getColorClass = (color: string) => {
+    const colorMap: Record<string, string> = {
+      yellow: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300',
+      blue: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
+      green: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
+      red: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300',
+      gray: 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300',
+      purple: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300',
+      indigo: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300',
+      pink: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300',
+    };
+    return colorMap[color] || colorMap['gray'];
   };
 
   const props = defineProps({
