@@ -1,46 +1,50 @@
 <template>
-  <section class="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5 flex items-center justify-center min-h-screen">
-    <div class="px-4 mx-auto max-w-screen-2xl lg:px-12 grow">
-      <div class="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
+  <div class="p-4 sm:ml-64 mt-14">
+    <div class="p-4 border-1 border-default border-dashed rounded-base">
+      <section class="bg-gray-50 dark:bg-gray-900 flex justify-center min-h-screen">
+        <div class="mx-auto max-w-screen-2xl grow">
+          <div class="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
 
-        <FilterAndSearchTable
-          @inputSearch="e => search = e"
-          @StatusChange="e => statusFilter = e"
-          @showModelCreate="showModelCreate"
-          @deleteData="deleteData(dataAllCheck)"
-          :setting="tableSetting.setting"
-          :dataAllCheck="dataAllCheck"
-        />
+            <FilterAndSearchTable
+                @inputSearch="e => search = e"
+                @StatusChange="e => statusFilter = e"
+                @showModelCreate="showModelCreate"
+                @deleteData="deleteData(dataAllCheck)"
+                :setting="tableSetting.setting"
+                :dataAllCheck="dataAllCheck"
+            />
 
-        <customTable
-            :dataAllCheck="dataAllCheck"
-            :setting="tableSetting.setting"
-            :loading="loading"
-            :error="error"
-            :data="data"
-            :table="tableSetting.table"
-            @allCheckRowsFun="e => allCheckRowsFun(e)"
-            @addCheckTableAll="e => addCheckTableAll(e)"
-            @dblclickRow="e => dblclickRow(e)"
-            @showModelEdit="e => showModelEdit(e)"
-            @deleteData="e => deleteData(e)"
-            @dataAllCheck="e => dataAllCheck = e"
-        />
+            <customTable
+                :dataAllCheck="dataAllCheck"
+                :setting="tableSetting.setting"
+                :loading="loading"
+                :error="error"
+                :data="data"
+                :table="tableSetting.table"
+                @allCheckRowsFun="e => allCheckRowsFun(e)"
+                @addCheckTableAll="e => addCheckTableAll(e)"
+                @dblclickRow="e => dblclickRow(e)"
+                @showModelEdit="e => showModelEdit(e)"
+                @deleteData="e => deleteData(e)"
+                @dataAllCheck="e => dataAllCheck = e"
+            />
 
-        <PaginationTable
-            :dataPaginate="dataPaginate"
-            :pagePaginate="pagePaginate"
-            :data="data"
-            @getData="e => getData(e)"
-        />
+            <PaginationTable
+                :dataPaginate="dataPaginate"
+                :pagePaginate="pagePaginate"
+                :data="data"
+                @getData="e => getData(e)"
+            />
 
-      </div>
+          </div>
+        </div>
+
+        <!--     modal   -->
+        <ModalCreateAndUpdate :type="type" :dataRow="dataRow" :modalShow="modalShow" @created="getData" />
+
+      </section>
     </div>
-
-    <!--     modal   -->
-    <ModalCreateAndUpdate :type="type" :dataRow="dataRow" :modalShow="modalShow" @created="getData" />
-
-  </section>
+  </div>
 </template>
 
 <script setup>
