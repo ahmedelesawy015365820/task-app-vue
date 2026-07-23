@@ -55,13 +55,14 @@
     defineComponent({ ModalCreateAndUpdate, FilterAndSearchTable, PaginationTable, customTable });
 
     const {
-      statusFilter, search, showModelCreate, showModelEdit, dblclickRow, dataAllCheck, allCheckRowsFun, tableSetting,
+      statusFilter, search, showModelCreate, showModelEdit, dblclickRow, dataAllCheck, allCheckRowsFun, tableSetting, getSetting,
       addCheckTableAll, deleteData, dataRow, modalShow, type, getData, uri, loading, error, pagePaginate, data, dataPaginate
     } = crud();
 
     onMounted(() => {
       uri.value = 'tasks';
       getData();
+      getSetting();
       initFlowbite();
     });
 
@@ -103,14 +104,6 @@
         type: 'date',
       }
     ];
-    tableSetting.setting = {
-      id: true,
-      title: true,
-      description: true,
-      status: true,
-      dueDate: true,
-    };
-
 
 </script>
 

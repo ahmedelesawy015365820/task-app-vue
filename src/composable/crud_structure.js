@@ -165,8 +165,26 @@ export default function crud() {
         setting: {},
     });
 
+    // start checkAll and delete
+    function getSetting() {
+        axiosSetting.get(`setting`)
+        .then((res) => {
+            loading.value = true;
+            let l = res.data;
+            tableSetting.setting = l[uri.value];
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+        .finally(() => {
+            loading.value = false;
+        });
+
+    }
+    // end checkAll and delete
+
     return {
-        statusFilter, search, showModelCreate, showModelEdit, dblclickRow, dataAllCheck, allCheckRowsFun, tableSetting,
+        statusFilter, search, showModelCreate, showModelEdit, dblclickRow, dataAllCheck, allCheckRowsFun, tableSetting, getSetting,
         addCheckTableAll, deleteData, dataRow, modalShow, type, getData, uri, loading, error, pagePaginate, data, dataPaginate
     }
 };

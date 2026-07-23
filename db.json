@@ -337,5 +337,14 @@
       "dueDate": "2026-09-19"
     }
   ],
+  "setting": {
+    "tasks": {
+      "id": true,
+      "title": true,
+      "description": true,
+      "status": true,
+      "dueDate": true
+    }
+  },
   "$schema": "./node_modules/json-server/schema.json"
 }
