@@ -25,11 +25,11 @@
         <form class="p-4 md:p-5">
           <div class="grid gap-4 mb-4 grid-cols-2">
             <div class="col-span-2">
-              <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+              <label for="title-model" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
               <input
                   type="text"
                   name="title"
-                  id="title"
+                  id="title-model"
                   v-model="v$.title.$model"
                   :class="[
                       'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
@@ -42,10 +42,10 @@
               >
             </div>
             <div class="col-span-2 sm:col-span-1">
-              <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+              <label for="status-model" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
               <select
                   v-model="v$.status.$model"
-                  id="status"
+                  id="status-model"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   :class="[{
                       'border border-red-500': v$.status.$error || errors[`status`],
@@ -59,11 +59,11 @@
               </select>
             </div>
             <div class="col-span-2 sm:col-span-1">
-              <label for="dueDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Due Date</label>
+              <label for="dueDate-model" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Due Date</label>
               <input
                   type="date"
                   name="dueDate"
-                  id="dueDate"
+                  id="dueDate-model"
                   v-model="v$.dueDate.$model"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   :class="[{
@@ -73,9 +73,9 @@
               >
             </div>
             <div class="col-span-2">
-              <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Description</label>
+              <label for="description-model" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Description</label>
               <textarea
-                  id="description"
+                  id="description-model"
                   rows="4"
                   v-model="v$.description.$model"
                   class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

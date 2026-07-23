@@ -56,6 +56,8 @@
     import customTable from "./../../components/crud/customTable.vue";
     import crud from "../../composable/crud_structure.js";
 
+    defineComponent({ ModalCreateAndUpdate, FilterAndSearchTable, PaginationTable, customTable });
+
     const {
       statusFilter, search, showModelCreate, showModelEdit, dblclickRow, dataAllCheck, allCheckRowsFun, tableSetting, getSetting,
       addCheckTableAll, deleteData, dataRow, modalShow, type, getData, uri, loading, error, pagePaginate, data, dataPaginate
