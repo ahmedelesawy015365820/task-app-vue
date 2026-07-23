@@ -47,7 +47,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { initFlowbite } from 'flowbite';
     import {defineComponent, onMounted, reactive, ref, watch} from "vue";
     import ModalCreateAndUpdate from "./ModalCreateAndUpdate.vue";
@@ -55,8 +55,6 @@
     import PaginationTable from "./../../components/crud/paginationTable.vue";
     import customTable from "./../../components/crud/customTable.vue";
     import crud from "../../composable/crud_structure.js";
-
-    defineComponent({ ModalCreateAndUpdate, FilterAndSearchTable, PaginationTable, customTable });
 
     const {
       statusFilter, search, showModelCreate, showModelEdit, dblclickRow, dataAllCheck, allCheckRowsFun, tableSetting, getSetting,

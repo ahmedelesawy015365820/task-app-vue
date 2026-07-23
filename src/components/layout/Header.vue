@@ -49,7 +49,7 @@
   <!-- Topbar End -->
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 </script>
 

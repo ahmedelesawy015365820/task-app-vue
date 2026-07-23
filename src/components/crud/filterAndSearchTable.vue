@@ -82,7 +82,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { PlusIcon } from '@heroicons/vue/24/solid';
 import {defineComponent, ref, watch} from "vue";
 

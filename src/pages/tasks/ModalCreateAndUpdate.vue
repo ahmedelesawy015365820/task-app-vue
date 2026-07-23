@@ -128,7 +128,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {computed, nextTick, reactive, ref, watch} from "vue";
 import useVuelidate from "@vuelidate/core";
 import {maxLength, minLength, required} from "@vuelidate/validators";

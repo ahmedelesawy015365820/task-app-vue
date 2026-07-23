@@ -17,7 +17,7 @@
   </aside>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 import { defineOptions } from "vue";
 defineOptions({ name: "Sidebar" });

@@ -5,11 +5,11 @@ import axiosSetting from "../settings/axiosSetting";
 export default function crud() {
 
     // start fetch data
-    const data = ref([]);
+    const data = ref<any[]>([]);
     const loading = ref(false);
-    const error = ref(null);
-    const pagePaginate = ref(null);
-    const dataPaginate = ref(null);
+    const error = ref<string | null>(null);
+    const pagePaginate = ref<number>(1);
+    const dataPaginate = ref<any>(null);
     const uri = ref('tasks');
 
 
@@ -18,7 +18,7 @@ export default function crud() {
         loading.value = true;
         modalShow.value = 0;
 
-        let params = {
+        let params: Record<string, any> = {
             _page: page,
             _per_page: 10,
             _sort: 'title',
@@ -30,12 +30,12 @@ export default function crud() {
 
         axiosSetting.get(`${uri.value}`,{
             params: params,
-        }).then((res) => {
+        }).then((res: any) => {
             let l = res.data;
             dataPaginate.value = l;
             data.value = l.data;
         })
-            .catch((err) => {
+            .catch((err: any) => {
                 error.value = "Failed to load tasks.";
             })
             .finally(() => {
@@ -45,7 +45,7 @@ export default function crud() {
     // end fetch data
 
     // start search and Filter
-    const debounce = ref({})
+    const debounce = ref<ReturnType<typeof setTimeout> | undefined>(undefined);
     let search = ref('');
     let statusFilter = ref('');
 
@@ -58,11 +58,11 @@ export default function crud() {
     // end search and Filter
 
     // start show model
-    let dataRow = ref('');
-    let modalShow = ref(false);
-    const type = ref('');
+    let dataRow = ref<any>(null);
+    let modalShow = ref<number>(0);
+    const type = ref<string>('');
 
-    let showModelEdit = (row) => {
+    let showModelEdit = (row: any) => {
         dataRow.value = row;
         type.value = 'edit';
         modalShow.value += 1;
@@ -72,17 +72,17 @@ export default function crud() {
         type.value = 'create';
         modalShow.value += 1;
     }
-    let dblclickRow = (item) => {
-        document.getElementById('add-new').click();
+    let dblclickRow = (item: any) => {
+        document.getElementById('add-new')?.click();
         showModelEdit(item);
     };
     // end show model
 
     // start checkAll and delete
-    let dataAllCheck = ref([]);
-    let allCheckRowsFun = (e) => {
+    let dataAllCheck = ref<any[]>([]);
+    let allCheckRowsFun = (e: boolean) => {
         if(e){
-            data.value.forEach((el) => {
+            data.value.forEach((el: any) => {
                 if(!dataAllCheck.value.includes(el.id)){
                     dataAllCheck.value.push(el.id);
                 }
@@ -91,7 +91,7 @@ export default function crud() {
             dataAllCheck.value = [];
         }
     }
-    let addCheckTableAll = (id) => {
+    let addCheckTableAll = (id: any) => {
         if(!dataAllCheck.value.includes(id)){
             dataAllCheck.value.push(id);
         }else {
@@ -100,7 +100,7 @@ export default function crud() {
         }
     }
 
-    function deleteData(id){
+    function deleteData(id: any){
         if(Array.isArray(id)) {
             Swal.fire({
                 title: `Are You Sure Delete ?`,
@@ -113,9 +113,9 @@ export default function crud() {
                 cancelButtonText: 'no',
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    await id.map(async el => {
+                    await Promise.all(id.map(async (el: any) => {
                         await axiosSetting.delete(`${uri.value}/${el}`)
-                    });
+                    }));
                     await getData();
                     await Swal.fire({
                         icon: 'success',
@@ -138,7 +138,7 @@ export default function crud() {
             }).then((result) => {
                 if (result.isConfirmed) {
                     axiosSetting.delete(`${uri.value}/${id}`)
-                        .then((res) => {
+                        .then((res: any) => {
                             Swal.fire({
                                 icon: 'success',
                                 title: `Deleted Successfully`,
@@ -147,7 +147,7 @@ export default function crud() {
                             });
                             getData();
                         })
-                        .catch((err) => {
+                        .catch((err: any) => {
                             Swal.fire({
                                 icon: 'error',
                                 title: `There Is An Error In The System`,
@@ -161,19 +161,19 @@ export default function crud() {
     // end checkAll and delete
 
     const tableSetting = reactive({
-        table: [],
-        setting: {},
+        table: [] as any[],
+        setting: {} as Record<string, any>,
     });
 
     // start checkAll and delete
     function getSetting() {
         axiosSetting.get(`setting`)
-        .then((res) => {
+        .then((res: any) => {
             loading.value = true;
             let l = res.data;
             tableSetting.setting = l[uri.value];
         })
-        .catch((err) => {
+        .catch((err: any) => {
             console.log(err);
         })
         .finally(() => {

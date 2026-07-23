@@ -34,7 +34,7 @@
   </nav>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 const props = defineProps({
   dataPaginate: { required: true, type: Object},
