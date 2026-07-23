@@ -1,0 +1,341 @@
+{
+  "tasks": [
+    {
+      "id": "2",
+      "title": "Task 2",
+      "description": "Description for task 2",
+      "status": "In Progress",
+      "dueDate": "2026-08-02"
+    },
+    {
+      "id": "3",
+      "title": "Task 3",
+      "description": "Description for task 3",
+      "status": "Done",
+      "dueDate": "2026-08-03"
+    },
+    {
+      "id": "4",
+      "title": "Task 4",
+      "description": "Description for task 4",
+      "status": "Pending",
+      "dueDate": "2026-08-04"
+    },
+    {
+      "id": "5",
+      "title": "Task 5",
+      "description": "Description for task 5",
+      "status": "In Progress",
+      "dueDate": "2026-08-05"
+    },
+    {
+      "id": "6",
+      "title": "Task 6",
+      "description": "Description for task 6",
+      "status": "Done",
+      "dueDate": "2026-08-06"
+    },
+    {
+      "id": "7",
+      "title": "Task 7",
+      "description": "Description for task 7",
+      "status": "Pending",
+      "dueDate": "2026-08-07"
+    },
+    {
+      "id": "8",
+      "title": "Task 8",
+      "description": "Description for task 8",
+      "status": "In Progress",
+      "dueDate": "2026-08-08"
+    },
+    {
+      "id": "9",
+      "title": "Task 9",
+      "description": "Description for task 9",
+      "status": "Done",
+      "dueDate": "2026-08-09"
+    },
+    {
+      "id": "11",
+      "title": "Task 11",
+      "description": "Description for task 11",
+      "status": "In Progress",
+      "dueDate": "2026-08-11"
+    },
+    {
+      "id": "12",
+      "title": "Task 12",
+      "description": "Description for task 12",
+      "status": "Done",
+      "dueDate": "2026-08-12"
+    },
+    {
+      "id": "13",
+      "title": "Task 13",
+      "description": "Description for task 13",
+      "status": "Pending",
+      "dueDate": "2026-08-13"
+    },
+    {
+      "id": "14",
+      "title": "Task 14",
+      "description": "Description for task 14",
+      "status": "In Progress",
+      "dueDate": "2026-08-14"
+    },
+    {
+      "id": "15",
+      "title": "Task 15",
+      "description": "Description for task 15",
+      "status": "Done",
+      "dueDate": "2026-08-15"
+    },
+    {
+      "id": "16",
+      "title": "Task 16",
+      "description": "Description for task 16",
+      "status": "Pending",
+      "dueDate": "2026-08-16"
+    },
+    {
+      "id": "17",
+      "title": "Task 17",
+      "description": "Description for task 17",
+      "status": "In Progress",
+      "dueDate": "2026-08-17"
+    },
+    {
+      "id": "18",
+      "title": "Task 18",
+      "description": "Description for task 18",
+      "status": "Done",
+      "dueDate": "2026-08-18"
+    },
+    {
+      "id": "19",
+      "title": "Task 19",
+      "description": "Description for task 19",
+      "status": "Pending",
+      "dueDate": "2026-08-19"
+    },
+    {
+      "id": "20",
+      "title": "Task 20",
+      "description": "Description for task 20",
+      "status": "In Progress",
+      "dueDate": "2026-08-20"
+    },
+    {
+      "id": "21",
+      "title": "Task 21",
+      "description": "Description for task 21",
+      "status": "Done",
+      "dueDate": "2026-08-21"
+    },
+    {
+      "id": "22",
+      "title": "Task 22",
+      "description": "Description for task 22",
+      "status": "Pending",
+      "dueDate": "2026-08-22"
+    },
+    {
+      "id": "23",
+      "title": "Task 23",
+      "description": "Description for task 23",
+      "status": "In Progress",
+      "dueDate": "2026-08-23"
+    },
+    {
+      "id": "24",
+      "title": "Task 24",
+      "description": "Description for task 24",
+      "status": "Done",
+      "dueDate": "2026-08-24"
+    },
+    {
+      "id": "25",
+      "title": "Task 25",
+      "description": "Description for task 25",
+      "status": "Pending",
+      "dueDate": "2026-08-25"
+    },
+    {
+      "id": "26",
+      "title": "Task 26",
+      "description": "Description for task 26",
+      "status": "In Progress",
+      "dueDate": "2026-08-26"
+    },
+    {
+      "id": "27",
+      "title": "Task 27",
+      "description": "Description for task 27",
+      "status": "Done",
+      "dueDate": "2026-08-27"
+    },
+    {
+      "id": "28",
+      "title": "Task 28",
+      "description": "Description for task 28",
+      "status": "Pending",
+      "dueDate": "2026-08-28"
+    },
+    {
+      "id": "29",
+      "title": "Task 29",
+      "description": "Description for task 29",
+      "status": "In Progress",
+      "dueDate": "2026-08-29"
+    },
+    {
+      "id": "30",
+      "title": "Task 30",
+      "description": "Description for task 30",
+      "status": "Done",
+      "dueDate": "2026-08-30"
+    },
+    {
+      "id": "31",
+      "title": "Task 31",
+      "description": "Description for task 31",
+      "status": "Pending",
+      "dueDate": "2026-08-31"
+    },
+    {
+      "id": "32",
+      "title": "Task 32",
+      "description": "Description for task 32",
+      "status": "In Progress",
+      "dueDate": "2026-09-01"
+    },
+    {
+      "id": "33",
+      "title": "Task 33",
+      "description": "Description for task 33",
+      "status": "Done",
+      "dueDate": "2026-09-02"
+    },
+    {
+      "id": "34",
+      "title": "Task 34",
+      "description": "Description for task 34",
+      "status": "Pending",
+      "dueDate": "2026-09-03"
+    },
+    {
+      "id": "35",
+      "title": "Task 35",
+      "description": "Description for task 35",
+      "status": "In Progress",
+      "dueDate": "2026-09-04"
+    },
+    {
+      "id": "36",
+      "title": "Task 36",
+      "description": "Description for task 36",
+      "status": "Done",
+      "dueDate": "2026-09-05"
+    },
+    {
+      "id": "37",
+      "title": "Task 37",
+      "description": "Description for task 37",
+      "status": "Pending",
+      "dueDate": "2026-09-06"
+    },
+    {
+      "id": "38",
+      "title": "Task 38",
+      "description": "Description for task 38",
+      "status": "In Progress",
+      "dueDate": "2026-09-07"
+    },
+    {
+      "id": "39",
+      "title": "Task 39",
+      "description": "Description for task 39",
+      "status": "Done",
+      "dueDate": "2026-09-08"
+    },
+    {
+      "id": "40",
+      "title": "Task 40",
+      "description": "Description for task 40",
+      "status": "Pending",
+      "dueDate": "2026-09-09"
+    },
+    {
+      "id": "41",
+      "title": "Task 41",
+      "description": "Description for task 41",
+      "status": "In Progress",
+      "dueDate": "2026-09-10"
+    },
+    {
+      "id": "42",
+      "title": "Task 42",
+      "description": "Description for task 42",
+      "status": "Done",
+      "dueDate": "2026-09-11"
+    },
+    {
+      "id": "43",
+      "title": "Task 43",
+      "description": "Description for task 43",
+      "status": "Pending",
+      "dueDate": "2026-09-12"
+    },
+    {
+      "id": "44",
+      "title": "Task 44",
+      "description": "Description for task 44",
+      "status": "In Progress",
+      "dueDate": "2026-09-13"
+    },
+    {
+      "id": "45",
+      "title": "Task 45",
+      "description": "Description for task 45",
+      "status": "Done",
+      "dueDate": "2026-09-14"
+    },
+    {
+      "id": "46",
+      "title": "Task 46",
+      "description": "Description for task 46",
+      "status": "Pending",
+      "dueDate": "2026-09-15"
+    },
+    {
+      "id": "47",
+      "title": "Task 47",
+      "description": "Description for task 47",
+      "status": "In Progress",
+      "dueDate": "2026-09-16"
+    },
+    {
+      "id": "48",
+      "title": "Task 48",
+      "description": "Description for task 48",
+      "status": "Done",
+      "dueDate": "2026-09-17"
+    },
+    {
+      "id": "49",
+      "title": "Task 49",
+      "description": "Description for task 49",
+      "status": "Pending",
+      "dueDate": "2026-09-18"
+    },
+    {
+      "id": "50",
+      "title": "Task 50",
+      "description": "Description for task 50",
+      "status": "In Progress",
+      "dueDate": "2026-09-19"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
