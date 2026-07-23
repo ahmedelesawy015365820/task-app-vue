@@ -23,7 +23,7 @@
                 :table="tableSetting.table"
                 @allCheckRowsFun="e => allCheckRowsFun(e)"
                 @addCheckTableAll="e => addCheckTableAll(e)"
-                @dblclickRow="e => dblclickRow(e)"
+                @dblclickRow="e => showModelEdit(e)"
                 @showModelEdit="e => showModelEdit(e)"
                 @deleteData="e => deleteData(e)"
                 @dataAllCheck="e => dataAllCheck = e"
@@ -40,7 +40,14 @@
         </div>
 
         <!--     modal   -->
-        <ModalCreateAndUpdate :type="type" :dataRow="dataRow" :modalShow="modalShow" @created="getData" />
+        <ModalCreateAndUpdate
+            :type="type"
+            :label="label"
+            :idPage="idPage"
+            :dataRow="dataRow"
+            :modalShow="modalShow"
+            @created="getData"
+        />
 
       </section>
     </div>
@@ -59,12 +66,16 @@
     defineComponent({ ModalCreateAndUpdate, FilterAndSearchTable, PaginationTable, customTable });
 
     const {
-      statusFilter, search, showModelCreate, showModelEdit, dblclickRow, dataAllCheck, allCheckRowsFun, tableSetting, getSetting,
-      addCheckTableAll, deleteData, dataRow, modalShow, type, getData, uri, loading, error, pagePaginate, data, dataPaginate
+      statusFilter, search, showModelCreate, showModelEdit, dataAllCheck, allCheckRowsFun, tableSetting, getSetting,
+      addCheckTableAll, deleteData, dataRow, modalShow, type, getData, uri, loading, error, pagePaginate, data, dataPaginate,
+      idPage, headLabel, label
     } = crud();
 
     onMounted(() => {
       uri.value = 'tasks';
+      headLabel.value = 'Tasks';
+      idPage.value = 'task';
+      label.value = 'Task';
       getData();
       getSetting();
       initFlowbite();

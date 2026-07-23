@@ -11,6 +11,9 @@ export default function crud() {
     const error = ref<string | null>(null);
     const pagePaginate = ref<number>(1);
     const dataPaginate = ref<any>(null);
+    const idPage = ref<string>('');
+    const headLabel = ref<string>('');
+    const label = ref<string>('');
     const uri = ref('tasks');
 
 
@@ -65,7 +68,7 @@ export default function crud() {
     const type = ref<string>('');
 
     const openModal = () => {
-        const modalEl = document.getElementById('crud-modal');
+        const modalEl = document.getElementById(`${idPage.value}-modal`);
         if (modalEl) {
             const modal = new Modal(modalEl);
             modal.show();
@@ -84,9 +87,6 @@ export default function crud() {
         modalShow.value += 1;
         openModal();
     }
-    let dblclickRow = (item: any) => {
-        showModelEdit(item);
-    };
     // end show model
 
     // start checkAll and delete
@@ -171,12 +171,12 @@ export default function crud() {
     }
     // end checkAll and delete
 
+    // start tableSetting
     const tableSetting = reactive({
         table: [] as any[],
         setting: {} as Record<string, any>,
     });
 
-    // start checkAll and delete
     function getSetting() {
         axiosSetting.get(`setting`)
         .then((res: any) => {
@@ -192,10 +192,11 @@ export default function crud() {
         });
 
     }
-    // end checkAll and delete
+    // end tableSetting
 
     return {
-        statusFilter, search, showModelCreate, showModelEdit, dblclickRow, dataAllCheck, allCheckRowsFun, tableSetting, getSetting,
-        addCheckTableAll, deleteData, dataRow, modalShow, type, getData, uri, loading, error, pagePaginate, data, dataPaginate
+        statusFilter, search, showModelCreate, showModelEdit, dataAllCheck, allCheckRowsFun, tableSetting, getSetting,
+        addCheckTableAll, deleteData, dataRow, modalShow, type, getData, uri, loading, error, pagePaginate, data, dataPaginate,
+        idPage, headLabel, label
     }
 };
