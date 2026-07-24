@@ -12,6 +12,7 @@
                 @deleteData="deleteData(dataAllCheck)"
                 :setting="tableSetting.setting"
                 :dataAllCheck="dataAllCheck"
+                :label="label"
             />
 
             <customTable

@@ -39,7 +39,7 @@
           class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
       >
         <PlusIcon class="w-5 h-5 mr-2" />
-        Add product
+        Add {{ label }}
       </button>
       <div class="flex items-center space-x-3 w-full md:w-auto">
         <button v-if="dataAllCheck.length > 0" type="button" @click.prevent="$emit('deleteData')" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">
@@ -90,6 +90,7 @@ defineComponent({ PlusIcon });
 const props = defineProps({
   setting: { required: true, type: Object},
   dataAllCheck: { required: true, type: Number},
+  label: { required: true, type: String},
 });
 
 
